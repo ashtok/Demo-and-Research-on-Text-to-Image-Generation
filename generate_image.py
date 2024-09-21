@@ -40,16 +40,16 @@ def generate_real_images(prompt):
     medium_image = pt_to_pil(image)[0]
 
     # Stage 3: Generate 1024x1024 image
-    #large_image = stage_3(prompt=prompt, image=image, generator=generator, noise_level=100).images[0]
+    large_image = stage_3(prompt=prompt, image=image, generator=generator, noise_level=100).images[0]
 
     # Save all images to temporary files
     base_image_path = f"./generated_base_image.png"
     medium_image_path = f"./generated_medium_image.png"
-    #large_image_path = f"./generated_medium_image.png"
+    large_image_path = f"./generated_large_image.png"
 
     base_image.save(base_image_path)
     medium_image.save(medium_image_path)
-    #large_image.save(large_image_path)
+    large_image.save(large_image_path)
 
-    #return base_image_path, medium_image_path, large_image_path
-    return base_image_path, medium_image_path
+    return base_image_path, medium_image_path, large_image_path
+    #return base_image_path, medium_image_path

@@ -29,33 +29,33 @@ class ImageRequest(BaseModel):
 
 # Generate images using DeepFloyd IF model
 def generate_images(prompt):
-    base_image, medium_image = generate_real_images(prompt)  # Call your image generation function
-    #base_image, medium_image, large_image = generate_real_images(prompt)  # Call your image generation function
+    #base_image, medium_image = generate_real_images(prompt)  # Call your image generation function
+    base_image, medium_image, large_image = generate_real_images(prompt)  # Call your image generation function
 
     # Rename and move images to IMAGE_DIR
     base_image_path = os.path.join(IMAGE_DIR, f"{uuid.uuid4()}_64x64.png")
     medium_image_path = os.path.join(IMAGE_DIR, f"{uuid.uuid4()}_256x256.png")
-    #large_image_path = os.path.join(IMAGE_DIR, f"{uuid.uuid4()}_1024x1024.png")
+    large_image_path = os.path.join(IMAGE_DIR, f"{uuid.uuid4()}_1024x1024.png")
 
     # Move or copy the generated files to the appropriate directories
     os.rename(base_image, base_image_path)
     os.rename(medium_image, medium_image_path)
-    #os.rename(large_image, large_image_path)
+    os.rename(large_image, large_image_path)
 
-    return base_image_path, medium_image_path
-    #return base_image_path, medium_image_path, large_image_path
+    #return base_image_path, medium_image_path
+    return base_image_path, medium_image_path, large_image_path
 
 @app.post("/generate_image")
 async def generate_image(request: ImageRequest):
     try:
         # Generate images based on the caption prompt
-        base_image, medium_image= generate_images(request.prompt)
-        #base_image, medium_image, large_image = generate_images(request.prompt)
+        #base_image, medium_image= generate_images(request.prompt)
+        base_image, medium_image, large_image = generate_images(request.prompt)
 
         return JSONResponse({
             "base_image": os.path.basename(base_image),
-            "medium_image": os.path.basename(medium_image)
-            #"large_image": os.path.basename(large_image)
+            "medium_image": os.path.basename(medium_image),
+            "large_image": os.path.basename(large_image)
         })
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)

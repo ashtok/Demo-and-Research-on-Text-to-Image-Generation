@@ -23,6 +23,8 @@ FINAL_IMAGE_DIR = "final_generated_images"
 os.makedirs(IMAGE_DIR, exist_ok=True)
 os.makedirs(FINAL_IMAGE_DIR, exist_ok=True)
 
+# File to save prompts and IDs
+PROMPT_FILE = "prompts.txt"
 
 class ImageRequest(BaseModel):
     prompt: str
@@ -33,17 +35,24 @@ def generate_images(prompt):
     # Generate the images using the generate_real_images function
     base_image, medium_image, large_image = generate_real_images(prompt)
 
+    # Create a unique ID for this generation
+    unique_id = str(uuid.uuid4())
+
     # Save the 64x64 and 256x256 images in "generated_images"
-    base_image_path = os.path.join(IMAGE_DIR, f"{uuid.uuid4()}_64x64.png")
-    medium_image_path = os.path.join(IMAGE_DIR, f"{uuid.uuid4()}_256x256.png")
+    base_image_path = os.path.join(IMAGE_DIR, f"{unique_id}_64x64.png")
+    medium_image_path = os.path.join(IMAGE_DIR, f"{unique_id}_256x256.png")
 
     # Save the 1024x1024 image in "final_generated_images"
-    large_image_path = os.path.join(FINAL_IMAGE_DIR, f"{uuid.uuid4()}_1024x1024.png")
+    large_image_path = os.path.join(FINAL_IMAGE_DIR, f"{unique_id}_1024x1024.png")
 
     # Move or copy the generated files to the appropriate directories
     os.rename(base_image, base_image_path)
     os.rename(medium_image, medium_image_path)
     os.rename(large_image, large_image_path)
+
+    # Save the prompt and ID to the text file
+    with open(PROMPT_FILE, "a") as f:
+        f.write(f"{unique_id}: {prompt}\n")
 
     return base_image_path, medium_image_path, large_image_path
 
@@ -57,7 +66,8 @@ async def generate_image(request: ImageRequest):
         return JSONResponse({
             "base_image": os.path.basename(base_image),
             "medium_image": os.path.basename(medium_image),
-            "large_image": os.path.basename(large_image)
+            "large_image": os.path.basename(large_image),
+            # Removed the unique ID from the response
         })
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)

@@ -2,7 +2,6 @@ import transformers
 from diffusers import DiffusionPipeline
 from diffusers.utils import pt_to_pil
 import torch
-import os
 
 # Ensure you are using the correct version of PyTorch and other dependencies
 print("PyTorch version:", torch.__version__)
@@ -43,13 +42,12 @@ def generate_real_images(prompt):
     large_image = stage_3(prompt=prompt, image=image, generator=generator, noise_level=100).images[0]
 
     # Save all images to temporary files
-    base_image_path = f"./generated_base_image.png"
-    medium_image_path = f"./generated_medium_image.png"
-    large_image_path = f"./generated_large_image.png"
+    base_image_path = f"./temp_generated_base_image.png"  # 64x64 image (temporary)
+    medium_image_path = f"./temp_generated_medium_image.png"  # 256x256 image (temporary)
+    large_image_path = f"./temp_generated_large_image.png"  # 1024x1024 image (temporary)
 
     base_image.save(base_image_path)
     medium_image.save(medium_image_path)
     large_image.save(large_image_path)
 
     return base_image_path, medium_image_path, large_image_path
-    #return base_image_path, medium_image_path

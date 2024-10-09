@@ -82,7 +82,7 @@ We developed a **web interface** to demonstrate the functionality of **DeepFloyd
 ## 7. Running the Web Interface
 
 1. Ensure that the **DeepFloyd IF model** is installed and configured.
-2. Activate the environment in terminal as repo location.
+2. Activate the environment in terminal at repo location.
 3. ```
    source deepfloyd_env/bin/activate
    ```
@@ -91,11 +91,11 @@ We developed a **web interface** to demonstrate the functionality of **DeepFloyd
 6. Open a new terminal and start the ngrok service. **Do not close this terminal**.
 7. ```ngrok http 8000```
 8. Copy the ngrok forwarding URL.
-9. Replace the URL in the following variable in the index.html file:
+9. Replace the URL in the following variable in the `index.html` file:
 10. ```const ngrokUrl = 'https://cd93-132-187-245-44.ngrok-free.app/';```
-11. Open your index.html file in a web browser. Enter a text prompt, and the generated images will be displayed within approximately 2 minutes.
+11. Open your `index.html` file in a web browser. Enter a text prompt, and the generated images will be displayed within approximately 2 minutes.
 12. If the image does not appear on the first attempt, click on the image link (shown below the promt box) to allow access to the image via ngrok in your browser.
-13. **Note:** The generation time may exceed 2 minutes depending on GPU resource availability. It typically takes less than 2 minutes on a NVIDIA GPU with 16 GB of VRAM.
+**Note:** The generation time may exceed 2 minutes depending on GPU resource availability. It typically takes less than 2 minutes on a NVIDIA GPU with 16 GB of VRAM.
 
 ## 8. Conclusion
 

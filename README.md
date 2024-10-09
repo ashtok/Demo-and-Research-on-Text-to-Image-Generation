@@ -80,7 +80,7 @@ This project explored text-to-image generation using three advanced models: **Pa
 ## 10. References
 
 - [DeepFloyd IF Repository](https://github.com/deep-floyd/IF)
-- [Lucidrains Parti and Imagen repositories](https://github.com/lucidrains/parti-pytorch) | [Imagen](https://github.com/lucidrains/imagen-pytorch)
+- [Parti](https://github.com/lucidrains/parti-pytorch) | [Imagen](https://github.com/lucidrains/imagen-pytorch)
 - [MinImagen Repository](https://github.com/AssemblyAI-Community/MinImagen)
 - Parti Paper: [Scaling Autoregressive Models for Content-Rich Text-to-Image Generation](https://doi.org/10.48550/arXiv.2206.10789)
 - Imagen Paper: [Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding](https://doi.org/10.48550/arXiv.2205.11487)

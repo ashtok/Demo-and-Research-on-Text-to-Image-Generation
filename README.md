@@ -57,6 +57,30 @@ We developed a **web interface** to demonstrate the functionality of **DeepFloyd
 
 ## 6. Installation and Setup
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
+1. Clone the repository.
+2. Activate the environment.
+
+## 7. Running the Web Interface
+
+1. Ensure that the **DeepFloyd IF model** is installed and configured.
+2. Start the server.
+3. Start the **ngrok** service.
+4. Update the **ngrok URL** in the `index.html` file.
+5. Open `index.html` in a web browser, enter a text prompt, and view the generated images (within 2 minutes).
+
+## 8. Conclusion
+
+This project explored text-to-image generation using three advanced models: **Parti**, **Imagen**, and **DeepFloyd IF**. While Parti and Imagen had implementation challenges, DeepFloyd IF proved to be a robust solution, providing high-quality images and an easy-to-use web interface.
+
+## 9. Future Work
+
+- Explore more text-to-image models and optimize the image generation process for faster execution.
+- Further improve memory efficiency and speed of the **DeepFloyd IF** model.
+
+## 10. References
+
+- [DeepFloyd IF Repository](https://github.com/deep-floyd/IF)
+- [Lucidrains Parti and Imagen repositories](https://github.com/lucidrains/parti-pytorch) | [Imagen](https://github.com/lucidrains/imagen-pytorch)
+- [MinImagen Repository](https://github.com/AssemblyAI-Community/MinImagen)
+- Parti Paper: [Scaling Autoregressive Models for Content-Rich Text-to-Image Generation](https://doi.org/10.48550/arXiv.2206.10789)
+- Imagen Paper: [Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding](https://doi.org/10.48550/arXiv.2205.11487)

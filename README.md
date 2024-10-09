@@ -93,8 +93,10 @@ We developed a **web interface** to demonstrate the functionality of **DeepFloyd
 8. Copy the ngrok forwarding URL.
 9. Replace the URL in the following variable in the `index.html` file:
 10. ```const ngrokUrl = 'https://cd93-132-187-245-44.ngrok-free.app/';```
-11. Open your `index.html` file in a web browser. Enter a text prompt, and the generated images will be displayed within approximately 2 minutes.
-12. If the image does not appear on the first attempt, click on the image link (shown below the promt box) to allow access to the image via ngrok in your browser.
+11. Open your `index.html` file in a web browser.
+12. Enter a text prompt, and the generated images will be displayed within approximately 2 minutes.
+13. If the image does not appear on the first attempt, click on the image link (shown below the promt box) to allow access to the image via ngrok in your browser.
+
 **Note:** The generation time may exceed 2 minutes depending on GPU resource availability. It typically takes less than 2 minutes on a NVIDIA GPU with 16 GB of VRAM.
 
 ## 8. Conclusion

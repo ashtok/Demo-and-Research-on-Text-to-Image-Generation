@@ -91,7 +91,7 @@ We developed a **web interface** to demonstrate the functionality of **DeepFloyd
 6. Open a new terminal and start the ngrok service. **Do not close this terminal**.
 7. ```ngrok http 8000```
 8. Copy the ngrok forwarding URL.
-9. Replace the URL in the following variable in the `index.html` file:
+9. Replace the URL in the following variable in the `index.html` file located in Frontend folder:
 10. ```const ngrokUrl = 'https://cd93-132-187-245-44.ngrok-free.app/';```
 11. Open your `index.html` file in a web browser.
 12. Enter a text prompt, and the generated images will be displayed within approximately 2 minutes.

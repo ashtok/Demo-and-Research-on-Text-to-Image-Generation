@@ -57,8 +57,27 @@ We developed a **web interface** to demonstrate the functionality of **DeepFloyd
 
 ## 6. Installation and Setup
 
-1. Clone the repository.
-2. Activate the environment.
+1. **Clone the repository.**
+2. **Login to Hugging Face**:
+   - Ensure you have a Hugging Face account and are logged in.
+   - Accept the license on the [DeepFloyd/IF-I-XL-v1.0 model card](https://huggingface.co/DeepFloyd/IF-I-XL-v1.0).
+
+3. **Login Locally**:
+   - Install Hugging Face Hub: `pip install huggingface_hub --upgrade`
+   - Run the following in a Python shell:
+
+     ```python
+     from huggingface_hub import login
+     login()
+     ```
+   - Enter your Hugging Face Hub access token.
+
+4. **Install Dependencies**:
+   - Install Diffusers and related packages:  
+     `pip install diffusers accelerate transformers safetensors`
+
+5. **Now we can run the Model Locally**.
+
 
 ## 7. Running the Web Interface
 
